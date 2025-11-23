@@ -1,0 +1,16 @@
+/* Georama'nın Variable versiyonunu import ediyoruz */
+@import url("https://fonts.googleapis.com/css2?family=Georama:wght@100..900&display=swap");
+
+@import "tailwindcss";
+@tailwind utilities;
+
+/* Garanti olsun diye tüm siteye uyguluyoruz */
+body {
+  font-family: "Georama", sans-serif;
+  background-color: #f0f0f0;
+}
+
+.iridescence-container {
+  width: 100%;
+  height: 100%;
+}
