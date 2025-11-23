@@ -66,7 +66,7 @@ export const projects = [
     description:
       "A modern, 3D-enabled landing page designed for the 'Just Coder' email service for developers. The project was implemented with a dynamic and interactive sharing using pure HTML, CSS, and JavaScript.",
     href: "",
-    image: "public/assets/projects/first-portfolio.png",
+    image: "/assets/projects/first-portfolio.png",
     bgImage: "/assets/backgrounds/blanket.jpg",
     frameworks: [
       { id: 1, name: "Html" },
@@ -80,7 +80,7 @@ export const projects = [
     description:
       "My personal portfolio site with a futuristic space theme, developed using React + Vite and Tailwind CSS. I combined the 'Astronaut' 3D object, modeled in Blender, with JavaScript to create a dynamic 'hero' area.",
     href: "",
-    image: "public/assets/projects/Second-portfolio.png",
+    image: "/assets/projects/Second-portfolio.png",
     bgImage: "/assets/backgrounds/curtains.jpg",
     frameworks: [
       { id: 1, name: "React" },
@@ -95,7 +95,7 @@ export const projects = [
     description:
       "A minimalist portfolio site focused on premium brands, coded with React + Vite and Tailwind CSS. At the heart of the design is a custom 3D planet model created in Blender, integrated with JavaScript.",
     href: "",
-    image: "public/assets/projects/third-portfolio.png",
+    image: "/assets/projects/third-portfolio.png",
     bgImage: "/assets/backgrounds/map.jpg",
     frameworks: [
       { id: 1, name: "React" },
