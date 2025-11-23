@@ -2,7 +2,6 @@ import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
 import { projects } from "../constants";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
-
 import gsap from "gsap";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
