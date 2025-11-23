@@ -218,7 +218,7 @@ const Works = () => {
         </div>
       </div>
       <div
-        className="relative flex flex-col gap-12 font-extralight"
+        className="relative flex flex-col gap-12 font-extralight mt-40 md:mt-0"
         onMouseMove={handleMouseMove}
       >
         {projects.map((project, index) => (
