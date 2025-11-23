@@ -1,4 +1,3 @@
-import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
 import { projects } from "../constants";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
