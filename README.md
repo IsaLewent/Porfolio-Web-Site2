@@ -1,6 +1,6 @@
 # ✦ Isa - Creative Developer Portfolio
 
-![alt text](</assets/projects/third-portfolio.png>)
+![alt text](<public/assets/projects/third-portfolio.png>)
 
 > **"I help growing brands and startups gain an unfair advantage through premium driven webs/apps."**
 
