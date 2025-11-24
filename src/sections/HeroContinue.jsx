@@ -1,7 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger"; // 1. ScrollTrigger'ı import et
-import React, { useRef } from "react";
+import { useRef } from "react";
 import "/src/HeroContinue.css";
 
 // 2. Plugin'i kaydet
