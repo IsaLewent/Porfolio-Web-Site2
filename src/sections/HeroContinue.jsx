@@ -82,7 +82,11 @@ const animateEntrance = (container) => {
     y: 100, // 100px aşağıdan başla
     opacity: 0, // Görünmez başla
     duration: 1, // 1 saniye sürsün
-    stagger: 0.03, // Harfler arası 0.03sn gecikme (Sırayla gelme efekti)
+    stagger: {
+      each: 0.03,
+      amount: 0.4,
+      from: "random", // Görünümden başlayarak sırayla
+    }, // Harfler arası 0.03sn gecikme (Sırayla gelme efekti)
     ease: "power4.out", // Yumuşak bir çıkış
     scrollTrigger: {
       trigger: container, // Tetikleyici eleman (h1 veya p)

@@ -50,7 +50,7 @@ const ServicesSummary = () => {
   return (
     <section
       id="all-services"
-      className="mt-20 overflow-hidden font-extralight leading-snug text-center mb-42 contact-text-responsive"
+      className="mt-20 overflow-hidden flex flex-col justify-center items-center font-extralight leading-snug text-center mb-42 contact-text-responsive"
     >
       <div id="title-services-1">
         <p className="text-bold italic">Archituctre</p>

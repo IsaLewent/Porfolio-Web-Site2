@@ -131,13 +131,13 @@ const Contact = () => {
             <div className={`relative  border-t-2  text-white`} />
           </div>
 
-          <div className="absolute px-1 0inset-x-2 sm:inset-x-0 text-white">
+          <div className="px-1  sm:inset-x-0 text-white text-center">
             <div
               className={
                 "py-12 sm:py-14  text-balance flex-wrap overflow-hidden font-light uppercase value-text-responsive text-center "
               }
             >
-              <div ref={containerRef} className={`message-content `}>
+              <div ref={containerRef} className={`message-content`}>
                 {lines.map((line, index) => (
                   <span
                     key={index}
@@ -151,7 +151,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="flex flex-col mt-70 sm:mt-60 font-light text-white uppercase lg:tet-[32px] text-[26px] leading-none mb-10 Second-Section">
+        <div className="flex flex-col mt-70 sm:mt-30 font-light text-white uppercase lg:tet-[32px] text-[26px] leading-none mb-10 Second-Section">
           <div className="flex flex-col w-full gap-10 px-10">
             <div className="social-link">
               <h2>E-mail</h2>
