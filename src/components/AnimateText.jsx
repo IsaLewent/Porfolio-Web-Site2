@@ -1,15 +1,18 @@
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
-import { useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
+import { LoadingContext } from "./LoadingContext";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const AnimateText = ({ text, classname, withScrollTrigger = false }) => {
   const containerRef = useRef(null);
   const lines = text.split("\n").filter((line) => line.trim() !== ""); // ! Aşağıya alıyor.
+  const { isLoaded } = useContext(LoadingContext);
 
-  useGSAP(() => {
+  useEffect(() => {
+    if (!isLoaded) return;
+
     // ! Fontlari yüklemesini bekle
     document.fonts.ready.then(() => {
       const msgSplit = new SplitText(
@@ -17,7 +20,7 @@ const AnimateText = ({ text, classname, withScrollTrigger = false }) => {
         {
           type: "lines, words",
           linesClass: "split-line",
-        }
+        },
       );
 
       gsap.set(msgSplit.words, { yPercent: 100, opacity: 0 });
@@ -43,7 +46,7 @@ const AnimateText = ({ text, classname, withScrollTrigger = false }) => {
         },
       });
     });
-  }, []); // Sadece bir kez çalış
+  }, [isLoaded, withScrollTrigger]);
 
   return (
     <div ref={containerRef} className={`message-content ${classname || ""}`}>

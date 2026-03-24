@@ -1,9 +1,29 @@
 import { Canvas } from "@react-three/fiber";
 import { Planet } from "../components/Planet.jsx";
-import { Environment, Float, Lightformer } from "@react-three/drei";
+import {
+  Environment,
+  Float,
+  Lightformer,
+  useProgress,
+} from "@react-three/drei";
 import { useMediaQuery } from "react-responsive";
 import AnimatedHeaderSection from "../components/AnimatedHeaderSection.jsx";
 import HeroContinue from "./HeroContinue.jsx";
+import { useContext, useEffect } from "react";
+import { LoadingContext } from "../components/LoadingContext.jsx";
+
+const GlobalLoaderTracker = () => {
+  const { progress } = useProgress();
+  const { setIsLoaded } = useContext(LoadingContext);
+
+  useEffect(() => {
+    if (progress === 100) {
+      setIsLoaded(true);
+    }
+  }, [progress, setIsLoaded]);
+
+  return null;
+};
 
 const Hero = () => {
   const isMobile = useMediaQuery({ maxWidth: 853 });
@@ -12,6 +32,7 @@ const Hero = () => {
   premium driven webs/aps`;
   return (
     <div className="">
+      <GlobalLoaderTracker />
       <section id="Home" className="flex flex-col justify-center min-h-screen ">
         <AnimatedHeaderSection
           subtitle={"404 No Bugs Found"}
@@ -33,7 +54,7 @@ const Hero = () => {
             <Float speed={0.7}>
               <Planet scale={isMobile ? 0.7 : 1} />
             </Float>
-            <Environment resolution={256}>
+            <Environment resolution={256} preset="">
               <group rotation={[-Math.PI / 3, 4, 1]}>
                 <Lightformer
                   form={"circle"}

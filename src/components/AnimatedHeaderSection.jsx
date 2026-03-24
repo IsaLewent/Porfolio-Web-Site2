@@ -1,19 +1,23 @@
-import { useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import AnimateText from "../components/AnimateText";
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { LoadingContext } from "./LoadingContext";
 
 const AnimatedHeaderSection = ({
   subtitle,
   title,
   text,
   textColor,
-  withScrollTriiger,
+  withScrollTrigger,
 }) => {
+  const { isLoaded } = useContext(LoadingContext);
+
   const contextRef = useRef(null);
   const headerRef = useRef(null);
 
-  useGSAP(() => {
+  useEffect(() => {
+    if (!isLoaded) return;
+
     const tl = gsap.timeline({
       delay: 2.5,
       scrollTrigger: undefined,
@@ -33,9 +37,9 @@ const AnimatedHeaderSection = ({
         ease: "power1.inOut",
         opacity: 0,
       },
-      "<+0.2"
+      "<+0.2",
     );
-  }, []); // Sadece bir kez çalış
+  }, [isLoaded]);
 
   return (
     <div>
@@ -44,7 +48,7 @@ const AnimatedHeaderSection = ({
           <div
             ref={headerRef}
             className={
-              withScrollTriiger
+              withScrollTrigger
                 ? ""
                 : "flex flex-col justify-center  gap-12 pt-16 sm:gap-16 text-balance"
             }

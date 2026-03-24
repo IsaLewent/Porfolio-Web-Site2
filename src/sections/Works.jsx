@@ -84,7 +84,10 @@ const Works = () => {
         }
       );
 
-      gsap.set(msgSplit.words, { yPercent: 100, opacity: 0 });
+      gsap.set(msgSplit.words, {
+        yPercent: 100,
+        opacity: 0,
+      });
 
       const tL = gsap.timeline({
         scrollTrigger: {
@@ -119,10 +122,10 @@ const Works = () => {
     gsap.fromTo(
       el,
       {
-        clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)",
+        clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
       },
       {
-        clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
+        clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
         ease: "power2.out",
         duration: 0.15,
       }
@@ -274,7 +277,7 @@ const Works = () => {
         {/* dekstop floating preview image */}
         <div
           ref={previewRef}
-          className="absolute -top-2/6 z-10 left-0 overflow-hidden w-[764px] rounded-sm border-black pointer-events-none hidden md:block opacit-0"
+          className="absolute -top-2/6 z-10 left-0 overflow-hidden w-[764px] rounded-sm border-black pointer-events-none hidden md:block opacity-0"
         >
           {currentIndex !== null && (
             <img
