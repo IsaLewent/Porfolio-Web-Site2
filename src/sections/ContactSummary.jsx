@@ -1,9 +1,10 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useRef } from "react";
 import Marquee from "../components/Marquee";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { LoadingContext } from "../components/LoadingContext";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,44 +32,54 @@ const ContactSummary = () => {
 
   const { isLoaded } = useContext(LoadingContext);
 
-  useEffect(() => {
-    if (!isLoaded) return;
+  useGSAP(
+    () => {
+      if (!isLoaded) return;
 
-    gsap.to(containerRef.current, {
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "center center",
-        end: "+=800 center",
-        pin: true,
-        pinSpacing: true,
-      },
-    });
+      let split;
 
-    // ! Fontların Yüklenmesini Bekle
-    document.fonts.ready.then(() => {
-      const split = new SplitText(paragraphRef.current, {
-        type: "words",
+      document.fonts.ready.then(() => {
+        gsap.to(containerRef.current, {
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "center center",
+            end: "+=800",
+            pin: true,
+            pinSpacing: true,
+          },
+        });
+
+        // SplitText Metin Parçalama
+        split = new SplitText(paragraphRef.current, { type: "words" });
+
+        gsap.from(split.words, {
+          y: 100,
+          opacity: 0,
+          rotate: 5,
+          duration: 0.5,
+          stagger: 0.09,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: paragraphRef.current,
+            start: "top center",
+            end: "bottom center",
+          },
+        });
+
+        ScrollTrigger.refresh();
       });
-      gsap.from(split.words, {
-        y: 100,
-        opacity: 0,
-        rotate: 5,
-        duration: 0.5,
-        stagger: 0.09, // ! Her kelime arası gecikme süresi
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: paragraphRef.current,
-          start: "top center",
-          end: "bottom center",
-        },
-      });
+
       return () => {
-        split.revert(); // ! Component bağlantısı kesilince temizle
+        if (split) {
+          split.revert();
+        }
       };
-    });
-
-    ScrollTrigger.refresh();
-  });
+    },
+    {
+      dependencies: [isLoaded], // isLoaded true olduğunda bu kod bloğu çalışacak
+      scope: containerRef, // Sadece bu bileşen içindeki elementleri hedef al
+    },
+  );
 
   return (
     <section

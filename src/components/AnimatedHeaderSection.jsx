@@ -1,7 +1,8 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useRef } from "react";
 import AnimateText from "../components/AnimateText";
 import gsap from "gsap";
 import { LoadingContext } from "./LoadingContext";
+import { useGSAP } from "@gsap/react";
 
 const AnimatedHeaderSection = ({
   subtitle,
@@ -15,31 +16,34 @@ const AnimatedHeaderSection = ({
   const contextRef = useRef(null);
   const headerRef = useRef(null);
 
-  useEffect(() => {
-    if (!isLoaded) return;
+  useGSAP(
+    () => {
+      if (!isLoaded) return;
 
-    const tl = gsap.timeline({
-      delay: 2.5,
-      scrollTrigger: undefined,
-    });
+      const tl = gsap.timeline({
+        delay: 2.5,
+        scrollTrigger: undefined,
+      });
 
-    tl.from(contextRef.current, {
-      x: "100vw",
-      duration: 1,
-      ease: "circ.inOut",
-    });
-
-    tl.from(
-      headerRef.current,
-      {
+      tl.from(contextRef.current, {
+        x: "100vw",
         duration: 1,
-        x: 350,
-        ease: "power1.inOut",
-        opacity: 0,
-      },
-      "<+0.2",
-    );
-  }, [isLoaded]);
+        ease: "circ.inOut",
+      });
+
+      tl.from(
+        headerRef.current,
+        {
+          duration: 1,
+          x: 350,
+          ease: "power1.inOut",
+          opacity: 0,
+        },
+        "<+0.2",
+      );
+    },
+    { dependencies: [isLoaded], scope: contextRef },
+  );
 
   return (
     <div>
