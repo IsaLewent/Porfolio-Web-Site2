@@ -103,7 +103,7 @@ const ContactSummary = () => {
       </div>
       <Marquee
         items={items2}
-        reverse={true}
+        reverse={false}
         icon="material-symbols-light:square"
         className="text-black bg-transparent border-y-2"
         iconClassname="stroke-gold stroke-2 text-primary"
