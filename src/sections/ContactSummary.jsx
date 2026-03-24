@@ -1,9 +1,9 @@
-import { useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import Marquee from "../components/Marquee";
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { LoadingContext } from "../components/LoadingContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,7 +29,11 @@ const ContactSummary = () => {
     "Commitment",
   ];
 
-  useGSAP(() => {
+  const { isLoaded } = useContext(LoadingContext);
+
+  useEffect(() => {
+    if (!isLoaded) return;
+
     gsap.to(containerRef.current, {
       scrollTrigger: {
         trigger: containerRef.current,
@@ -62,7 +66,9 @@ const ContactSummary = () => {
         split.revert(); // ! Component bağlantısı kesilince temizle
       };
     });
-  }, []); // ! Bir kere çalış
+
+    ScrollTrigger.refresh();
+  });
 
   return (
     <section
