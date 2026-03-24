@@ -57,7 +57,6 @@ export const servicesData = [
       },
     ],
   },
-
 ];
 export const projects = [
   {
@@ -109,6 +108,9 @@ export const projects = [
 export const socials = [
   { name: "Instagram", href: "https://www.instagram.com/isalewent/" },
 
-  { name: "LinkedIn", href: "https://tr.linkedin.com/" },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/isa-levent-7b6a41394/",
+  },
   { name: "GitHub", href: "https://github.com/IsaLewent" },
 ];
