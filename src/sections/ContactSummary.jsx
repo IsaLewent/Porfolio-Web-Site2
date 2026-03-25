@@ -50,19 +50,20 @@ const ContactSummary = () => {
         });
 
         // SplitText Metin Parçalama
-        split = new SplitText(paragraphRef.current, { type: "words" });
+        split = new SplitText(paragraphRef.current, { type: "chars" });
 
-        gsap.from(split.words, {
+        gsap.from(split.chars, {
           y: 100,
           opacity: 0,
           rotate: 5,
-          duration: 0.5,
-          stagger: 0.09,
+          duration: 0.6,
+          stagger: 0.02,
           ease: "power2.out",
           scrollTrigger: {
             trigger: paragraphRef.current,
             start: "top center",
             end: "bottom center",
+            scrub: 1.5,
           },
         });
 

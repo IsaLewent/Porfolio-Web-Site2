@@ -86,12 +86,13 @@ const animateEntrance = (container) => {
       each: 0.03,
       amount: 0.4,
       from: "random", // Görünümden başlayarak sırayla
-    }, // Harfler arası 0.03sn gecikme (Sırayla gelme efekti)
+    },
     ease: "power4.out", // Yumuşak bir çıkış
     scrollTrigger: {
       trigger: container, // Tetikleyici eleman (h1 veya p)
-      start: "top center", // Elemanın tepesi ekranın ortasına gelince başla
-      // markers: true, // Ayar yaparken görmek için açabilirsin
+      start: "top 80%", // Elemanın tepesi ekranın ortasına gelince başla
+
+      toggleActions: "play none none none",
     },
   });
 };
@@ -116,7 +117,7 @@ const HeroContinue = () => {
   }, []);
 
   return (
-    <div className="min-h-screen md:block hidden">
+    <div className="min-h-screen xl:block sm:hidden hidden">
       <section className="flex flex-col items-center justify-center min-h-screen font-georama">
         {/* overflow-hidden ekledik ki yazı aşağıdan gelirken taşmasın */}
         <p

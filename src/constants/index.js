@@ -1,59 +1,61 @@
 // index.js
 export const servicesData = [
   {
-    title: "FullStack Development",
+    title: "Frontend Development",
     description:
-      "Your business deserves a fast, secure, and future-proof digital foundation. I develop custom web apps with clean architecture, optimized databases, and seamless integrations—ensuring reliability at every layer.",
+      "Your business deserves a fast, visually engaging, and future-proof user interface. I build modern web experiences with clean component architecture, responsive layouts, and smooth interactions—ensuring clarity and performance across every screen.",
     items: [
       {
-        title: "Backend Engineering",
-        description: "(REST/GraphQL APIs, Microservices, Auth Systems)",
+        title: "UI Engineering",
+        description:
+          "(Component Architecture, Reusable Patterns, Design Systems)",
       },
       {
         title: "Frontend Excellence",
         description: "(React, Vue, TypeScript, Interactive UI/UX)",
       },
       {
-        title: "Database Design",
-        description: "(SQL/NoSQL Optimization, Scalable Structures)",
+        title: "Responsive Design",
+        description:
+          "(Mobile-first Layouts, Accessibility, Cross-browser Consistency)",
       },
     ],
   },
   {
-    title: "DevOps & Cloud Solutions",
+    title: "Performance & Experience",
     description:
-      "Deploying software shouldn't be a gamble. I automate infrastructure, enforce security, and leverage cloud platforms (AWS/Azure) to keep your app running smoothly—24/7, at any scale.",
+      "Users expect speed and fluid interaction. I optimize rendering, reduce bundle sizes, and create seamless animations so interfaces feel fast, intuitive, and enjoyable on every device.",
     items: [
       {
-        title: "CI/CD Pipelines",
-        description: "(GitHub Actions, Docker, Kubernetes)",
+        title: "Performance Optimization",
+        description: "(Lazy Loading, Code Splitting, Lighthouse 90+ Scores)",
       },
       {
-        title: "Server Management ",
-        description: "(Linux, Nginx, Load Balancing)",
+        title: "UX Enhancements",
+        description: "(Animations, Micro-interactions, Smooth Navigation)",
       },
       {
-        title: "Performance Tuning",
-        description: "(Caching, Compression, Lighthouse 90+ Scores)",
+        title: "State Management",
+        description: "(Context API, Redux, Scalable State Patterns)",
       },
     ],
   },
   {
-    title: "Security & Optimization",
+    title: "Accessibility & SEO",
     description:
-      "Slow or hacked apps destroy trust. I harden security (XSS/SQLI protection, OAuth) and optimize bottlenecks so your app stays fast, safe, and scalable as you grow.",
+      "Great interfaces are inclusive and discoverable. I implement accessibility standards and technical SEO foundations to ensure your application reaches more users and performs well in search results.",
     items: [
       {
-        title: "Code Audits",
-        description: "(Refactoring, Tech Debt Cleanup)",
+        title: "Accessibility",
+        description: "(ARIA Standards, Semantic HTML, Inclusive Design)",
       },
       {
-        title: "Pen Testing",
-        description: "(Vulnerability Assessments)",
+        title: "Technical SEO",
+        description: "(Metadata, Structured Data, Performance-friendly Markup)",
       },
       {
-        title: "SEO Tech Stack",
-        description: "(SSR, Metadata, Structured Data)",
+        title: "Code Quality",
+        description: "(Refactoring, Maintainable Structure, Clean Components)",
       },
     ],
   },
@@ -65,6 +67,7 @@ export const projects = [
     description:
       "A modern, 3D-enabled landing page designed for the 'Just Coder' email service for developers. The project was implemented with a dynamic and interactive sharing using pure HTML, CSS, and JavaScript.",
     href: "",
+    disabled: true,
     image: "/assets/projects/first-portfolio.png",
     bgImage: "/assets/backgrounds/blanket.jpg",
     frameworks: [
@@ -78,14 +81,17 @@ export const projects = [
     name: "My Second Porfolio Web-Site",
     description:
       "My personal portfolio site with a futuristic space theme, developed using React + Vite and Tailwind CSS. I combined the 'Astronaut' 3D object, modeled in Blender, with JavaScript to create a dynamic 'hero' area.",
-    href: "",
+    href: "https://isa-portfolio-2.vercel.app/",
+    disabled: false,
     image: "/assets/projects/Second-portfolio.png",
     bgImage: "/assets/backgrounds/curtains.jpg",
     frameworks: [
       { id: 1, name: "React" },
-      { id: 2, name: "TailwindCSS" },
+      { id: 2, name: "TailwindCSS - Gsap" },
       { id: 3, name: "JavaScript" },
-      { id: 4, name: "Three.js" },
+      { id: 4, name: "React/Three-Fiber" },
+      { id: 5, name: "React/Three-Drei" },
+      { id: 6, name: "Blender" },
     ],
   },
   {
@@ -93,14 +99,17 @@ export const projects = [
     name: "My Third Portfolio Web-Site",
     description:
       "A minimalist portfolio site focused on premium brands, coded with React + Vite and Tailwind CSS. At the heart of the design is a custom 3D planet model created in Blender, integrated with JavaScript.",
-    href: "",
+    href: "https://isa-portfolio-bay.vercel.app/",
+    disabled: false,
     image: "/assets/projects/third-portfolio.png",
     bgImage: "/assets/backgrounds/map.jpg",
     frameworks: [
       { id: 1, name: "React" },
-      { id: 2, name: "TailwindCSS" },
+      { id: 2, name: "TailwindCSS - Gsap" },
       { id: 3, name: "JavaScript" },
-      { id: 4, name: "Three.js" },
+      { id: 4, name: "React/Three-Fiber" },
+      { id: 5, name: "React/Three-Drei" },
+      { id: 6, name: "Blender" },
     ],
   },
 ];

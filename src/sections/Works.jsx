@@ -11,7 +11,7 @@ const Works = () => {
   meticulously crafted with passion 
   to drive results and impact`;
 
-  const overlaysRef = useRef([]);
+  const overlaysRef = useRef([null]);
   const mouse = useRef({ x: 0, y: 0 });
   const moveX = useRef(null);
   const moveY = useRef(null);
@@ -23,8 +23,9 @@ const Works = () => {
   const lines = text.split("\n").filter((line) => line.trim() !== ""); // ! Aşağıya alıyor.
 
   useGSAP(() => {
-    //!Floating image animation kısmı
+    gsap.set(previewRef.current, { xPercent: -50, yPercent: -50 });
 
+    //!Floating image animation kısmı
     moveX.current = gsap.quickTo(previewRef.current, "x", {
       duration: 1.5,
       ease: "power3.out",
@@ -70,18 +71,17 @@ const Works = () => {
         ease: "power1.inOut",
         opacity: 0,
       },
-      "<+0.2"
+      "<+0.2",
     );
     // ! Fontların Yüklenmesini Bekle
     document.fonts.ready.then(() => {
       //! Animate text kısmı
-
       const msgSplit = new SplitText(
         containerRef.current.querySelectorAll(".first-message"),
         {
           type: "lines, words",
           linesClass: "split-line",
-        }
+        },
       );
 
       gsap.set(msgSplit.words, {
@@ -128,13 +128,13 @@ const Works = () => {
         clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
         ease: "power2.out",
         duration: 0.15,
-      }
+      },
     );
 
     gsap.to(previewRef.current, {
       opacity: 1,
       scale: 1,
-      duration: 0.5,
+      duration: 0.4,
       ease: "power2.out",
     });
   };
@@ -153,19 +153,19 @@ const Works = () => {
     });
 
     gsap.to(previewRef.current, {
-      opacity: 0,
-      scale: 0,
-      duration: 0.5,
+      opacity: 1,
+      scale: 1,
+      duration: 0.6,
       ease: "power2.out",
     });
   };
   const handleMouseMove = (e) => {
     if (window.innerWidth < 768) return;
 
-    mouse.current.x = e.clientX + 24;
-    mouse.current.y = e.clientY + 24;
+    mouse.current.x = e.clientX - 3;
+    mouse.current.y = e.clientY - 40;
     moveX.current(mouse.current.x);
-    moveX.current(mouse.current.y);
+    moveY.current(mouse.current.y);
   };
 
   return (
@@ -228,7 +228,13 @@ const Works = () => {
             onMouseLeave={() => handleMouseLeave(index)}
             key={project.id}
             id="project"
-            className="relative flex flex-col  py-5 cursor-pointer group md:gap-0"
+            className="relative flex flex-col  py-4 cursor-pointer group md:gap-0"
+            onClick={() => {
+              if (!projects[index].disabled) {
+                window.open(projects[index].href, "_blank");
+              }
+            }}
+            style={{ cursor: project.disabled ? "auto" : "pointer" }}
           >
             {/* Overlay */}
             <div
@@ -240,7 +246,7 @@ const Works = () => {
             {/* {title} */}
 
             <div
-              className="lg:text-[32px] text-[26px] leading-none flex justify-between items-center px-4 md:group-hover:text-white md:group-hover:px-12 duration-500 transition-all
+              className="lg:text-[32px] text-[26px] leading-none flex justify-between items-center pr-4 pl-20 md:group-hover:text-white md:group-hover:pl-24 md:group-hover:pr-12 duration-500 transition-all
              "
             >
               <h2>{project.name}</h2>
@@ -254,7 +260,7 @@ const Works = () => {
             <div className="w-full h-0.5 bg-black/80" />
 
             {/* framework */}
-            <div className="flex px-10 gap-4 text-xs leading-loose uppercase transition-all duration-500 md:text-sm gap-x-5 md:group-hover:px-12">
+            <div className="flex px-22 gap-4 text-xs leading-loose uppercase transition-all duration-500 md:text-sm gap-x-5 md:group-hover:px-24">
               {project.frameworks.map((framework) => (
                 <p
                   key={framework.id}
@@ -277,7 +283,7 @@ const Works = () => {
         {/* dekstop floating preview image */}
         <div
           ref={previewRef}
-          className="absolute -top-2/6 z-10 left-0 overflow-hidden w-[764px] rounded-sm border-black pointer-events-none hidden md:block opacity-0"
+          className="absolute -top-2/6 z-10 left-0 overflow-hidden w-[764px] rounded-2xl border-black pointer-events-none hidden md:block opacity-0 scale-0"
         >
           {currentIndex !== null && (
             <img

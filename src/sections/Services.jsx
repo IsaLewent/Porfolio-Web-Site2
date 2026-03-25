@@ -9,33 +9,15 @@ const Services = () => {
   const isMobile = useMediaQuery({ maxWidth: "768px" });
   const text = isMobile
     ? "Secure & Performant Full-Stack Web | Smooth UX "
-    : `I build secure, high performance 
-  full-stack webs with smoothUX 
-  to drive growth not headacahes`;
+    : `I build secure, high performance \n full-stack webs with smoothUX \n to drive growth not headacahes`;
+
   const servicesRefs = useRef([]);
   const contextRef = useRef(null);
   const headerRef = useRef(null);
   const containerRef = useRef(null);
-  const lines = text.split("\n").filter((line) => line.trim() !== ""); // ! Aşağıya alıyor.
+  const lines = text.split("\n").filter((line) => line.trim() !== "");
 
   useGSAP(() => {
-    // !Yetenekler kısmı
-
-    servicesRefs.current.forEach((el) => {
-      if (!el) return;
-
-      gsap.from(el, {
-        y: 200,
-        opacity: 0,
-        scrollTrigger: {
-          trigger: el,
-          start: "top 60%",
-        },
-        ease: "power1.inOut",
-        duration: 1,
-      });
-    });
-
     // ! Header Kısmı
     const tL = gsap.timeline({
       scrollTrigger: {
@@ -59,17 +41,17 @@ const Services = () => {
         ease: "power3.inOut",
         opacity: 0,
       },
-      "<+0.2"
+      "<+0.2",
     );
-    // ! Fontların Yüklenmesini Bekle
+
+    // ! Fontların Yüklenmesini Bekle ve Header Metin Animasyonu
     document.fonts.ready.then(() => {
-      // ! Animate text kısmı
       const msgSplit = new SplitText(
         containerRef.current.querySelectorAll(".first-message"),
         {
           type: "lines, words",
           linesClass: "split-line",
-        }
+        },
       );
 
       gsap.set(msgSplit.words, { yPercent: 100, opacity: 0 });
@@ -93,8 +75,120 @@ const Services = () => {
           from: "start",
         },
       });
+
+      // ! Yetenekler (Services) Kısmı
+      servicesRefs.current.forEach((el) => {
+        if (!el) return;
+
+        const q = gsap.utils.selector(el);
+
+        // Metinleri Parçalama (Senin İstediğin Özelliklerde)
+        const titleSplit = new SplitText(q(".services-title"), {
+          type: "chars",
+        });
+        const descSplit = new SplitText(q(".services-description"), {
+          type: "words",
+        });
+        const numSplit = new SplitText(q(".services-number"), {
+          type: "chars",
+        });
+        const numTitleSplit = new SplitText(q(".services-number-title"), {
+          type: "chars",
+        });
+
+        const border = q(".services-border");
+
+        // HATA ÇÖZÜMÜ BURADA: Timeline başlamadan önce her şeyi anında gizle!
+        gsap.set(
+          [
+            titleSplit.chars,
+            descSplit.words,
+            numSplit.chars,
+            numTitleSplit.chars,
+          ],
+          {
+            opacity: 0,
+          },
+        );
+        const tlServices = gsap.timeline({
+          scrollTrigger: {
+            trigger: el,
+            start: "top 60%",
+            once: true,
+          },
+        });
+
+        // 1. Önce Kapsayıcının Kendi Efekti (clipPath)
+        tlServices.fromTo(
+          border,
+          { clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)" },
+          {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            duration: 0.8,
+            ease: "power2.inOut",
+          },
+          "-=0.2",
+        );
+
+        // 2. Title: Aşağıdan Yukarı, Harf Harf
+        tlServices
+          .fromTo(
+            titleSplit.chars,
+            { y: 50, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.6,
+              stagger: 0.02,
+              ease: "back.out(1.5)",
+            },
+            "-=0.4", // clipPath bitmeden 0.4 sn önce girer
+          )
+
+          // 3. Description: Aşağıdan Yukarı, Kelime Kelime
+          .fromTo(
+            descSplit.words,
+            { y: 20, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.5,
+              stagger: 0.01,
+              ease: "power2.out",
+            },
+            "-=0.4", // Başlık bitmeden girer
+          )
+
+          // 4. Number (01, 02): Soldan Sağa, Harf Harf
+          .fromTo(
+            numSplit.chars,
+            { x: -30, opacity: 0 },
+            {
+              x: 0,
+              opacity: 1,
+              duration: 0.5,
+              stagger: 0.03,
+              ease: "power3.out",
+            },
+            "-=0.4",
+          )
+
+          // 5. Number Title (Liste Başlığı): Sağdan Sola, Harf Harf
+          .fromTo(
+            numTitleSplit.chars,
+            { x: 30, opacity: 0 },
+            {
+              x: 0,
+              opacity: 1,
+              duration: 0.5,
+              stagger: 0.01,
+              ease: "power3.out",
+            },
+            "-=0.4", // Numaralarla tamamen aynı anda senkron başlar
+          );
+      });
     });
-  }, []); // Sadece bir kez çalış
+  }, []); // Scope bağımlılıkları useGSAP ile otomatik yönetilir
 
   return (
     <section
@@ -109,36 +203,24 @@ const Services = () => {
             >
               <div
                 ref={headerRef}
-                className={
-                  "flex flex-col justify-center items-start gap-12 pt-16 sm:gap-16"
-                }
+                className="flex flex-col justify-center items-start gap-12 pt-16 sm:gap-16"
               >
-                <p
-                  className={`text-sm font-light tracking-[0.5rem] uppercase text-balance px-12 text-white`}
-                >
+                <p className="text-sm font-light tracking-[0.5rem] uppercase text-balance px-12 text-white">
                   Behind the scene, I Beyond the screen
                 </p>
                 <div className="px-10 mb-15">
-                  <h1
-                    className={`flex flex-col flex-wrap gap-12 text-white uppercase banner-text-responsive sm:gap-16 md:block`}
-                  >
+                  <h1 className="flex flex-col flex-wrap gap-12 text-white uppercase banner-text-responsive sm:gap-16 md:block">
                     Service
                   </h1>
                 </div>
               </div>
             </div>
-            <div
-              className={`relative  px-10 border-t-2 text-white border-white`}
-            />
+            <div className="relative px-10  border-t-2 text-white border-white" />
           </div>
 
           <div className="text-white absolute inset-x-2 sm:inset-x-0 ">
-            <div
-              className={
-                "py-12 sm:py-14 px-10  text-balance flex-wrap overflow-hidden font-light uppercase value-text-responsive text-start "
-              }
-            >
-              <div ref={containerRef} className={`message-content px-12`}>
+            <div className="py-12 sm:py-14 px-10 text-balance flex-wrap overflow-hidden font-light uppercase value-text-responsive text-start">
+              <div ref={containerRef} className="message-content px-12">
                 {lines.map((line, index) => (
                   <span
                     key={index}
@@ -157,27 +239,33 @@ const Services = () => {
         <div
           ref={(el) => (servicesRefs.current[index] = el)}
           key={index}
-          id="serviceSection"
-          className="pt-6 pb-12 px-12 text-white bg-black border-t-2 border-white/30 "
+          id={`serviceSection-${index}`} // HATA ÖNLEYİCİ: ID'ler benzersiz olmalı, index ekledim.
+          className="pt-6 pb-12 px-12 text-white bg-black "
         >
+          <div
+            className="services-border border-t-2 border-white mb-12 w-full"
+            style={{ clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)" }}
+          />
           <div className="flex items-center justify-between gap-4 font-light">
             <div className="flex flex-col gap-6">
-              <h2 className="text-4xl lg:text-5xl">{service.title}</h2>
-              <p className="text-lg leading-relaxed tracking-widest lg-text-2xl text-white/60 text-pretty">
+              <h2 className="services-title text-4xl lg:text-5xl opacity-100">
+                {service.title}
+              </h2>
+              <p className="services-description text-lg leading-relaxed tracking-widest lg-text-2xl text-white/60 text-pretty">
                 {service.description}
               </p>
               <div className="flex flex-col gap-2 text-2xl sm:gap-4 lg:text-3xl text-white/80">
                 {service.items.map((item, itemIndex) => (
                   <div key={`item-${index}-${itemIndex}`}>
                     <h3 className="flex">
-                      <span className="mr-12 text-lg -text-white/30">
-                        0 {itemIndex + 1}
+                      <span className="services-number mr-12 pt-2 text-lg -text-white/30">
+                        0{itemIndex + 1}
                       </span>
-                      {item.title}
+                      <p className="services-number-title">{item.title}</p>
                     </h3>
-                    {itemIndex < service.items.length - 1 && (
-                      <div className=" mt-2 w-full  bg-white/30" />
-                    )}
+                    {/* {itemIndex < service.items.length - 1 && (
+                      <div className="mt-2 w-full bg-white/30 h-[1px]" />
+                    )} */}
                   </div>
                 ))}
               </div>
@@ -188,4 +276,5 @@ const Services = () => {
     </section>
   );
 };
+
 export default Services;
