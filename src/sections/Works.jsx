@@ -234,7 +234,9 @@ const Works = () => {
                 window.open(projects[index].href, "_blank");
               }
             }}
-            style={{ cursor: project.disabled ? "auto" : "pointer" }}
+            style={{
+              cursor: index === 0 ? "not-allowed" : "pointer",
+            }}
           >
             {/* Overlay */}
             <div
