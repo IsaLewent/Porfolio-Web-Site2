@@ -21,12 +21,12 @@ const Navbar = () => {
     });
     gsap.set(linksRef.current, {
       opacity: 0,
-      xPercent: -20,
+      xPercent: 200,
     });
 
     gsap.set(contactRef.current, {
       opacity: 0,
-      xPercent: -20,
+      xPercent: -200,
     });
 
     tl.current = gsap
@@ -45,7 +45,7 @@ const Navbar = () => {
           stagger: 0.1,
           ease: "power2.out",
         },
-        "<"
+        "<",
       )
       .to(
         contactRef.current,
@@ -55,7 +55,7 @@ const Navbar = () => {
           duration: 0.5,
           ease: "power2.out",
         },
-        "<+0.2"
+        "<+0.2",
       );
 
     iconTl.current = gsap
@@ -74,7 +74,7 @@ const Navbar = () => {
           duration: 0.3,
           ease: "power2.out",
         },
-        "<"
+        "<",
       );
   }, []);
 
@@ -106,7 +106,7 @@ const Navbar = () => {
     <>
       <nav
         ref={navRef}
-        className="fixed z-50 flex flex-col justify-between w-full h-full px-10 bg-black uppercase text-white/80 py-28 gap-y-10 md:w-1/2 md:left-1/2"
+        className="fixed z-50 flex flex-col justify-between w-full h-full px-10 bg-black uppercase text-white/80 py-28 gap-y-10 md:w-1/2 md:left-1/2 overflow-hidden"
       >
         <div className="flex flex-col text-5xl gap-y-4 md:text-6xl lg:text-8xl">
           {["Home", "Services", "Work", "Contact"].map((section, index) => (
