@@ -36,7 +36,7 @@ const AnimateText = ({ text, classname, withScrollTrigger = false }) => {
 
       tl.to(msgSplit.words, {
         yPercent: 0,
-        delay: withScrollTrigger ? 0.1 : 3,
+        delay: withScrollTrigger ? 0.1 : 0.2,
         opacity: 1,
         ease: "circ.out",
         duration: 0.6,

@@ -21,7 +21,7 @@ const AnimatedHeaderSection = ({
       if (!isLoaded) return;
 
       const tl = gsap.timeline({
-        delay: 2.5,
+        delay: 0.1,
         scrollTrigger: undefined,
       });
 
@@ -71,7 +71,7 @@ const AnimatedHeaderSection = ({
             </div>
           </div>
         </div>
-        <div className={`relative   text-black border-t-2 ${textColor}`} />
+        <div className={`relative text-black border-t-2 ${textColor}`} />
       </div>
 
       <div className="absolute px-1 inset-x-2 sm:inset-x-0 ">

@@ -19,10 +19,10 @@ export function Planet(props) {
       shapePlanet.current.position,
       {
         y: 5,
-        duration: 3,
+        duration: 1.8,
         ease: "circ.inOut",
       },
-      "<"
+      "<",
     );
 
     tl.from(
@@ -34,7 +34,7 @@ export function Planet(props) {
         duration: 10,
         ease: "power1.inOut",
       },
-      "<"
+      "<",
     );
     tl.from(
       ringRef.current.rotation,
@@ -45,7 +45,7 @@ export function Planet(props) {
         duration: 10,
         ease: "power1.inOut",
       },
-      "<"
+      "<",
     );
   });
   return (
