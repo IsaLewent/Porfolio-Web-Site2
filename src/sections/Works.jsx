@@ -169,25 +169,24 @@ const Works = () => {
   };
 
   return (
-    <section id="Work" className="flex flex-col gap-70 min-h-[80vh]">
+    <section id="Work" className="flex flex-col sm:gap-70 gap-72  min-h-[80vh]">
       <div>
         <div ref={contextRef}>
-          <div
-            style={{ clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)" }}
-            className="px-12"
-          >
+          <div className="sm:px-20 px-4 ">
             <div
               ref={headerRef}
               className={
-                "flex flex-col justify-center items-start gap-12 pt-16 sm:gap-16"
+                "flex flex-col sm:justify-start sm:items-start justify-center items-center gap-12 pt-16 sm:gap-16"
               }
             >
               <p
-                className={`text-sm font-light tracking-[0.5rem] uppercase text-balance px-10 text-black`}
+                className={
+                  "text-sm font-light uppercase sm:text-balance text-[18px] text-black"
+                }
               >
                 Logic meets Aesthetics, Seamlessly
               </p>
-              <div className="px-10 mb-15">
+              <div className="mb-15">
                 <h1
                   className={`flex flex-col flex-wrap gap-12 text-black uppercase banner-text-responsive sm:gap-16 md:block`}
                 >
@@ -199,17 +198,20 @@ const Works = () => {
           <div className={`text-black border-t-2 `} />
         </div>
 
-        <div className="absolute px-10 inset-x-2 sm:inset-x-0 ">
+        <div className="absolute px-20 inset-x-2 sm:inset-x-0 ">
           <div
             className={
-              "py-12 sm:py-14 px-10  text-balance flex-wrap overflow-hidden font-light uppercase value-text-responsive text-start "
+              "py-12 sm:py-14 text-balance flex-wrap overflow-hidden font-light uppercase value-text-responsive text-start "
             }
           >
-            <div ref={containerRef} className={`message-content `}>
+            <div
+              ref={containerRef}
+              className={`message-content flex  flex-col  sm:justify-start sm:items-start`}
+            >
               {lines.map((line, index) => (
                 <span
                   key={index}
-                  className="block leading-relaxed tracking-wide first-message "
+                  className="block leading-relaxed sm:tracking-wide tracking-[0.1px] first-message "
                 >
                   {line}
                 </span>
@@ -248,7 +250,7 @@ const Works = () => {
             {/* {title} */}
 
             <div
-              className="lg:text-[32px] text-[26px] leading-none flex justify-between items-center pr-4 pl-20 md:group-hover:text-white md:group-hover:pl-24 md:group-hover:pr-12 duration-500 transition-all
+              className="sm:text-[32px] text-[24px] leading-none flex justify-between items-center md:pr-4 md:pl-20 pr-12 pl-12 md:group-hover:text-white md:group-hover:pl-24 md:group-hover:pr-12 duration-500 transition-all 
              "
             >
               <h2>{project.name}</h2>
@@ -259,10 +261,10 @@ const Works = () => {
             </div>
             {/*  divider */}
 
-            <div className="w-full h-0.5 bg-black/80" />
+            <div className="w-full h-0.5 bg-black/80 my-4 sm:my-0" />
 
             {/* framework */}
-            <div className="flex px-22 gap-4 text-xs leading-loose uppercase transition-all duration-500 md:text-sm gap-x-5 md:group-hover:px-24">
+            <div className="flex sm:justify-start justify-center sm:px-20 px-4 gap-4 text-xs leading-loose uppercase transition-all duration-500 md:text-sm sm:gap-x-5 gap-x-2 md:group-hover:px-24">
               {project.frameworks.map((framework) => (
                 <p
                   key={framework.id}

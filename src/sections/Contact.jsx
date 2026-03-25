@@ -9,6 +9,7 @@ const Contact = () => {
   const contextRef = useRef(null);
   const headerRef = useRef(null);
   const containerRef = useRef(null);
+  const borderRef = useRef(null);
   const text = `Got a questions, how or project Idea ?
   we'd love to hear from 
   you and discuss further!`;
@@ -46,7 +47,7 @@ const Contact = () => {
         ease: "power1.inOut",
         opacity: 0,
       },
-      "<+0.2"
+      "<+0.2",
     );
     // ! Fontların yüklenmesini bekle
     document.fonts.ready.then(() => {
@@ -56,7 +57,7 @@ const Contact = () => {
         {
           type: "lines, words",
           linesClass: "split-line",
-        }
+        },
       );
 
       gsap.set(msgSplit.words, { yPercent: 100, opacity: 0 });
@@ -95,14 +96,30 @@ const Contact = () => {
         start: "top 70%",
       },
     });
+
+    gsap.fromTo(
+      borderRef.current,
+      {
+        opacity: 0,
+        clipPath: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
+      },
+      {
+        opacity: 1,
+        duration: 1,
+        delay: 0.2,
+        ease: "circ.inOut",
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 70%",
+        },
+      },
+    );
   }, []); // Sadece bir kez çalış
 
   return (
     <>
-      <section
-        id="Contact"
-        className="flex flex-col justify-between  bg-black min-h-screen "
-      >
+      <section id="Contact" className="flex flex-col bg-black  justify-center">
         <div className="First-Section">
           <div ref={contextRef}>
             <div
@@ -115,7 +132,7 @@ const Contact = () => {
                 }
               >
                 <p
-                  className={`text-sm font-light tracking-[0.5rem] uppercase text-balance px-10 text-white`}
+                  className={`sm:text-sm text-[12px] font-light tracking-[0.5rem] uppercase text-balance px-10 text-white`}
                 >
                   You Dream it , I Code it
                 </p>
@@ -131,7 +148,7 @@ const Contact = () => {
             <div className={`relative  border-t-2  text-white`} />
           </div>
 
-          <div className="px-1  sm:inset-x-0 text-white text-center">
+          <div className="px-1 sm:inset-x-0 text-white text-center">
             <div
               className={
                 "py-12 sm:py-14  text-balance flex-wrap overflow-hidden font-light uppercase value-text-responsive text-center "
@@ -148,10 +165,14 @@ const Contact = () => {
                 ))}
               </div>
             </div>
+            <div
+              ref={borderRef}
+              className={`relative  border-t-2  text-white`}
+            />
           </div>
         </div>
 
-        <div className="flex flex-col mt-70 sm:mt-30 font-light text-white uppercase lg:tet-[32px] text-[26px] leading-none mb-10 Second-Section">
+        <div className="flex flex-col mt-12 sm:mt-24 font-light text-white uppercase lg:tet-[32px] text-[26px] leading-none mb-10 Second-Section">
           <div className="flex flex-col w-full gap-10 px-10">
             <div className="social-link">
               <h2>E-mail</h2>
