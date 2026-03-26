@@ -32,7 +32,7 @@ const ServicesSummary = () => {
       </div>
       <div
         id="title-services-2"
-        className="flex items-center justify-center gap-3 xl:mr-4 md:mr-0 mr-6"
+        className="flex items-center justify-center gap-3 xl:mr-4 md:mr-0 mr-2"
       >
         <p className="font-normal">Development</p>
         <div className="w-10 h-1.5 md:w-32 bg-gold rounded-full" />
@@ -41,7 +41,7 @@ const ServicesSummary = () => {
 
       <div
         id="title-services-3"
-        className="flex items-center justify-center sm:gap-3 gap-2 xl:pr-12 md:pl-12 pr-4"
+        className="flex items-center justify-center sm:gap-3 gap-2 xl:pr-12 md:pl-12"
       >
         <p className="text-gold italic">API's</p>
         <div className="w-10 h-1.5 md:w-32 bg-black rounded-full" />
