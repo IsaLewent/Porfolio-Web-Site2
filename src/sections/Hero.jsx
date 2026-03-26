@@ -27,8 +27,8 @@ const GlobalLoaderTracker = () => {
 
 const Hero = () => {
   const isMobile = useMediaQuery({ maxWidth: 853 });
-  const text = `I help growing brands and startups 
-  gain an unfair advantage through 
+  const text = `I help growing brands and startups
+  gain an unfair advantage through
   premium driven webs/aps`;
   return (
     <div className="">

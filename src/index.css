@@ -129,5 +129,5 @@ body::-webkit-scrollbar {
 }
 
 @utility contact-text-responsive {
-  @apply text-[42px] sm:text-[52px] md:text-[62px] lg:text-[100px];
+  @apply text-[24px] sm:text-[32px] md:text-[64px] xl:text-[100px];
 }
