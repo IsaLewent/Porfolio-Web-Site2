@@ -4,19 +4,19 @@
 @font-face {
   font-family: "Amiamie";
   src:
-    url("public/fonts/amiamie/otf/Amiamie-Regular.otf") format("opentype"),
-    url("public/fonts/amiamie/ttf/Amiamie-Regular.ttf") format("truetype");
+    url("/fonts/amiamie/otf/Amiamie-Regular.otf") format("opentype"),
+    url("/fonts/amiamie/ttf/Amiamie-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
-/* Amiamie Regular Italic */
+/* Amiamie Italic */
 @font-face {
   font-family: "Amiamie";
   src:
-    url("public/fonts/amiamie/otf/Amiamie-Italic.otf") format("opentype"),
-    url("public/fonts/amiamie/ttf/Amiamie-Italic.ttf") format("truetype");
+    url("/fonts/amiamie/otf/Amiamie-Italic.otf") format("opentype"),
+    url("/fonts/amiamie/ttf/Amiamie-Italic.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -26,8 +26,8 @@
 @font-face {
   font-family: "Amiamie";
   src:
-    url("public/fonts/amiamie/otf/Amiamie-Light.otf") format("opentype"),
-    url("public/fonts/amiamie/ttf/Amiamie-Light.ttf") format("truetype");
+    url("/fonts/amiamie/otf/Amiamie-Light.otf") format("opentype"),
+    url("/fonts/amiamie/ttf/Amiamie-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -37,8 +37,8 @@
 @font-face {
   font-family: "Amiamie";
   src:
-    url("public/fonts/amiamie/otf/Amiamie-Black.otf") format("opentype"),
-    url("public/fonts/amiamie/ttf/Amiamie-Black.ttf") format("truetype");
+    url("/fonts/amiamie/otf/Amiamie-Black.otf") format("opentype"),
+    url("/fonts/amiamie/ttf/Amiamie-Black.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -48,46 +48,65 @@
 @font-face {
   font-family: "Amiamie";
   src:
-    url("public/fonts/amiamie/otf/Amiamie-BlackItalic.otf") format("opentype"),
-    url("public/fonts/amiamie/ttf/Amiamie-BlackItalic.ttf") format("truetype");
+    url("/fonts/amiamie/otf/Amiamie-BlackItalic.otf") format("opentype"),
+    url("/fonts/amiamie/ttf/Amiamie-BlackItalic.ttf") format("truetype");
   font-weight: 900;
   font-style: italic;
   font-display: swap;
 }
 
-/* Amiamie-Round Variants (if needed separately) */
+/* =========================================
+   Amiamie-Round Variants
+   ========================================= */
+
+/* Amiamie-Round Regular */
 @font-face {
   font-family: "Amiamie-Round";
   src:
-    url("public/fonts/amiamie/otf/Amiamie-ItalicRound.otf") format("opentype"),
-    url("public/fonts/amiamie/ttf/Amiamie-RegularRound.ttf") format("truetype");
+    url("/fonts/amiamie/otf/Amiamie-RegularRound.otf") format("opentype"),
+    url("/fonts/amiamie/ttf/Amiamie-RegularRound.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
+/* Amiamie-Round Italic */
 @font-face {
   font-family: "Amiamie-Round";
   src:
-    url("public/fonts/amiamie/otf/Amiamie-BlackRound.otf") format("opentype"),
-    url("public/fonts/amiamie/ttf/Amiamie-BlackItalicRound.ttf")
-      format("truetype");
+    url("/fonts/amiamie/otf/Amiamie-ItalicRound.otf") format("opentype"),
+    url("/fonts/amiamie/ttf/Amiamie-ItalicRound.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Amiamie-Round Black */
+@font-face {
+  font-family: "Amiamie-Round";
+  src:
+    url("/fonts/amiamie/otf/Amiamie-BlackRound.otf") format("opentype"),
+    url("/fonts/amiamie/ttf/Amiamie-BlackRound.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 
+/* Amiamie-Round Black Italic */
 @font-face {
   font-family: "Amiamie-Round";
   src:
-    url("public/fonts/amiamie/otf/Amiamie-BlackItalicRound.otf")
-      format("opentype"),
-    url("public/fonts/amiamie/ttf/Amiamie-BlackItalicRound.ttf")
-      format("truetype");
+    url("/fonts/amiamie/otf/Amiamie-BlackItalicRound.otf") format("opentype"),
+    url("/fonts/amiamie/ttf/Amiamie-BlackItalicRound.ttf") format("truetype");
   font-weight: 900;
   font-style: italic;
   font-display: swap;
 }
+
+/* =========================================
+   Theme & Base Styles
+   ========================================= */
+
 @theme {
   --color-primary: #e5e5e0;
   --color-DarkLava: #393632;
