@@ -193,9 +193,9 @@ const Services = () => {
   return (
     <section
       id="Services"
-      className="px-10 min-h-screen bg-black rounded-t-4xl z-50"
+      className="min-h-screen bg-black rounded-t-lg md:rounded-t-4xl z-50"
     >
-      <div className="mb-64">
+      <div className="sm:mb-52 mb-36 ">
         <div>
           <div ref={contextRef}>
             <div
@@ -205,22 +205,24 @@ const Services = () => {
                 ref={headerRef}
                 className="flex flex-col justify-center items-start gap-12 pt-16 sm:gap-16"
               >
-                <p className="text-sm font-light tracking-[0.5rem] uppercase text-balance px-12 text-white">
-                  Behind the scene, I Beyond the screen
+                <p className="sm:text-sm text-xs font-light tracking-[0.5rem] uppercase text-balance px-12 text-white ">
+                  {isMobile
+                    ? "behind the scene i beyond the screen"
+                    : "Behind the scene , i beyond the screen"}
                 </p>
-                <div className="px-10 mb-15">
+                <div className="px-12 mb-15">
                   <h1 className="flex flex-col flex-wrap gap-12 text-white uppercase banner-text-responsive sm:gap-16 md:block">
                     Service
                   </h1>
                 </div>
               </div>
             </div>
-            <div className="relative px-10  border-t-2 text-white border-white" />
+            <div className="relative px-10 border-t-2 text-white border-white" />
           </div>
 
-          <div className="text-white absolute inset-x-2 sm:inset-x-0 ">
-            <div className="py-12 sm:py-14 px-10 text-balance flex-wrap overflow-hidden font-light uppercase value-text-responsive text-start">
-              <div ref={containerRef} className="message-content px-12">
+          <div className="text-white absolute inset-x-2 sm:inset-x-0">
+            <div className="py-14 sm:py-14 text-balance flex-wrap overflow-hidden font-light uppercase value-text-responsive text-start">
+              <div ref={containerRef} className="sm:text-2xl text-lg px-12">
                 {lines.map((line, index) => (
                   <span
                     key={index}
@@ -240,28 +242,30 @@ const Services = () => {
           ref={(el) => (servicesRefs.current[index] = el)}
           key={index}
           id={`serviceSection-${index}`} // HATA ÖNLEYİCİ: ID'ler benzersiz olmalı, index ekledim.
-          className="pt-6 pb-12 px-12 text-white bg-black "
+          className="pt-6 pb-12 text-white bg-black "
         >
           <div
             className="services-border border-t-2 border-white mb-12 w-full"
             style={{ clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)" }}
           />
-          <div className="flex items-center justify-between gap-4 font-light">
+          <div className="flex items-center justify-between px-12 gap-4 font-light">
             <div className="flex flex-col gap-6">
-              <h2 className="services-title text-4xl lg:text-5xl opacity-100">
+              <h2 className="services-title text-2xl sm:text-4xl opacity-100">
                 {service.title}
               </h2>
-              <p className="services-description text-lg leading-relaxed tracking-widest lg-text-2xl text-white/60 text-pretty">
+              <p className="services-description sm:text-xl text-sm leading-relaxed tracking-widest lg:text-xl text-white/70 text-pretty">
                 {service.description}
               </p>
-              <div className="flex flex-col gap-2 text-2xl sm:gap-4 lg:text-3xl text-white/80">
+              <div className="flex flex-col gap-2 sm:gap-4 text-white/80">
                 {service.items.map((item, itemIndex) => (
                   <div key={`item-${index}-${itemIndex}`}>
                     <h3 className="flex">
-                      <span className="services-number mr-12 pt-2 text-lg -text-white/30">
+                      <span className="services-number sm:mr-12 mr-6 pt-2 sm:text-2xl text-lg -text-white/30">
                         0{itemIndex + 1}
                       </span>
-                      <p className="services-number-title">{item.title}</p>
+                      <p className="services-number-title sm:text-2xl text-lg mt-2 ">
+                        {item.title}
+                      </p>
                     </h3>
                     {/* {itemIndex < service.items.length - 1 && (
                       <div className="mt-2 w-full bg-white/30 h-[1px]" />

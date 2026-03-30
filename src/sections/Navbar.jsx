@@ -115,7 +115,7 @@ const Navbar = () => {
                 to={`${section}`}
                 smooth
                 offset={0}
-                duration={1300}
+                duration={50}
                 className="transition-all duration-300 cursor-pointer hover:text-white"
               >
                 {section}
@@ -130,7 +130,7 @@ const Navbar = () => {
           <div className="font-light ">
             <p className="tracking-wider text-white/50">E-mail</p>
             <p className="text-xl md:text-2xl lowercase text-white tracking-widest cursor-pointer mt-2">
-              isalevent124@gmail.com
+              isalevent1242@gmail.com
             </p>
           </div>
           <div className="font-light">

@@ -4,13 +4,19 @@ import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { socials } from "../constants";
 import Marquee from "../components/Marquee";
+import { useMediaQuery } from "react-responsive";
 
 const Contact = () => {
   const contextRef = useRef(null);
   const headerRef = useRef(null);
   const containerRef = useRef(null);
   const borderRef = useRef(null);
-  const text = `Got a questions, how or project Idea ?
+  const isMobile = useMediaQuery({ maxWidth: "768px" });
+  const text = isMobile
+    ? `Got a questions,\n how or project Idea ?
+  we'd love to hear from 
+  you and discuss further!`
+    : `Got a questions, how or project Idea ?
   we'd love to hear from 
   you and discuss further!`;
   const items = [

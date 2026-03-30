@@ -53,7 +53,7 @@ const AnimateText = ({ text, classname, withScrollTrigger = false }) => {
       {lines.map((line, index) => (
         <span
           key={index}
-          className="block leading-relaxed tracking-wide first-message sm:text-end text-center"
+          className="block leading-relaxed tracking-wide first-message sm:text-end text-start sm:text-2xl text-xl"
         >
           {line}
         </span>

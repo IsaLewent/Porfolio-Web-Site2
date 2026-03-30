@@ -5,9 +5,13 @@ import gsap from "gsap";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/all";
+import { useMediaQuery } from "react-responsive";
 
 const Works = () => {
-  const text = `Featured projects that have been 
+  const isMobile = useMediaQuery({ maxWidth: "768px" });
+  const text = isMobile
+    ? "Projects built with passion for meaningful impact"
+    : `Featured projects that have been 
   meticulously crafted with passion 
   to drive results and impact`;
 
@@ -169,19 +173,19 @@ const Works = () => {
   };
 
   return (
-    <section id="Work" className="flex flex-col sm:gap-70 gap-72  min-h-[80vh]">
+    <section id="Work" className="flex flex-col sm:gap-70 gap-0 min-h-[80vh]">
       <div>
         <div ref={contextRef}>
-          <div className="sm:px-20 px-4 ">
+          <div className="sm:px-20 px-12">
             <div
               ref={headerRef}
               className={
-                "flex flex-col sm:justify-start sm:items-start justify-center items-center gap-12 pt-16 sm:gap-16"
+                "flex flex-col sm:justify-start sm:items-start justify-center items-start gap-12 pt-16 sm:gap-16"
               }
             >
               <p
                 className={
-                  "text-sm font-light uppercase sm:text-balance text-[18px] text-black"
+                  "font-light uppercase sm:text-balance sm:text-2xl text-[16] text-black"
                 }
               >
                 Logic meets Aesthetics, Seamlessly
@@ -198,21 +202,18 @@ const Works = () => {
           <div className={`text-black border-t-2 `} />
         </div>
 
-        <div className="absolute px-20 inset-x-2 sm:inset-x-0 ">
+        <div className="absolute px-12 inset-x-2 sm:inset-x-0 ">
           <div
             className={
-              "py-12 sm:py-14 text-balance flex-wrap overflow-hidden font-light uppercase value-text-responsive text-start "
+              "py-12 sm:py-14 text-balance overflow-hidden font-light uppercase value-text-responsive text-start "
             }
           >
             <div
               ref={containerRef}
-              className={`message-content flex  flex-col  sm:justify-start sm:items-start`}
+              className={`message-content flex flex-col justify-start items-start `}
             >
               {lines.map((line, index) => (
-                <span
-                  key={index}
-                  className="block leading-relaxed sm:tracking-wide tracking-[0.1px] first-message "
-                >
+                <span key={index} className="block text-lg first-message ">
                   {line}
                 </span>
               ))}
@@ -250,7 +251,7 @@ const Works = () => {
             {/* {title} */}
 
             <div
-              className="sm:text-[32px] text-[24px] leading-none flex justify-between items-center md:pr-4 md:pl-20 pr-12 pl-12 md:group-hover:text-white md:group-hover:pl-24 md:group-hover:pr-12 duration-500 transition-all 
+              className="sm:text-[32px] text-[20px] leading-none flex justify-between items-center md:pr-4 md:pl-20 sm:pr-12 pr-4 pl-12 md:group-hover:text-white md:group-hover:pl-24 md:group-hover:pr-12 duration-500 transition-all 
              "
             >
               <h2>{project.name}</h2>
@@ -264,7 +265,7 @@ const Works = () => {
             <div className="w-full h-0.5 bg-black/80 my-4 sm:my-0" />
 
             {/* framework */}
-            <div className="flex sm:justify-start justify-center sm:px-20 px-4 gap-4 text-xs leading-loose uppercase transition-all duration-500 md:text-sm sm:gap-x-5 gap-x-2 md:group-hover:px-24">
+            <div className="flex sm:justify-start justify-center sm:px-20 px-4 gap-4 text-[11px] leading-loose uppercase transition-all duration-500 md:text-sm sm:gap-x-5 gap-x-2 md:group-hover:px-24">
               {project.frameworks.map((framework) => (
                 <p
                   key={framework.id}

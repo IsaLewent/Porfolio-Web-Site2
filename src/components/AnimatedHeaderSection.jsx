@@ -58,7 +58,7 @@ const AnimatedHeaderSection = ({
             }
           >
             <p
-              className={`text-sm font-light tracking-[0.5rem] uppercase text-balance px-10 ${textColor}`}
+              className={`text-xs sm:text-sm font-light tracking-[4px] uppercase text-balance px-10 ${textColor}`}
             >
               {subtitle}
             </p>
