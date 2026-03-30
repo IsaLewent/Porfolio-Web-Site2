@@ -68,8 +68,7 @@ export const projects = [
       "A modern, 3D-enabled landing page designed for the 'Just Coder' email service for developers. The project was implemented with a dynamic and interactive sharing using pure HTML, CSS, and JavaScript.",
     href: "",
     disabled: true,
-    image: "/assets/projects/first-portfolio.png",
-    bgImage: "/assets/backgrounds/blanket.jpg",
+    image: "/assets/projects/first-portfolio.webp",
     frameworks: [
       { id: 1, name: "Html" },
       { id: 2, name: "CSS" },
@@ -83,8 +82,7 @@ export const projects = [
       "My personal portfolio site with a futuristic space theme, developed using React + Vite and Tailwind CSS. I combined the 'Astronaut' 3D object, modeled in Blender, with JavaScript to create a dynamic 'hero' area.",
     href: "https://isa-portfolio-2.vercel.app/",
     disabled: false,
-    image: "/assets/projects/Second-portfolio.png",
-    bgImage: "/assets/backgrounds/curtains.jpg",
+    image: "/assets/projects/Second-portfolio.webp",
     frameworks: [
       { id: 1, name: "React" },
       { id: 2, name: "TailwindCSS - Gsap" },
@@ -101,8 +99,7 @@ export const projects = [
       "A minimalist portfolio site focused on premium brands, coded with React + Vite and Tailwind CSS. At the heart of the design is a custom 3D planet model created in Blender, integrated with JavaScript.",
     href: "https://isa-portfolio-bay.vercel.app/",
     disabled: false,
-    image: "/assets/projects/third-portfolio.png",
-    bgImage: "/assets/backgrounds/map.jpg",
+    image: "/assets/projects/third-portfolio.webp",
     frameworks: [
       { id: 1, name: "React" },
       { id: 2, name: "TailwindCSS - Gsap" },
