@@ -19,7 +19,7 @@ export function Planet(props) {
       shapePlanet.current.position,
       {
         y: 5,
-        duration: 1.8,
+        duration: 2.3,
         ease: "circ.inOut",
       },
       "<",
@@ -40,7 +40,7 @@ export function Planet(props) {
       ringRef.current.rotation,
       {
         x: 1,
-        y: 1,
+        y: 0.3,
         z: 0,
         duration: 10,
         ease: "power1.inOut",
@@ -55,17 +55,16 @@ export function Planet(props) {
           castShadow
           receiveShadow
           geometry={nodes.Sphere.geometry}
-          material={materials["Material.002"]}
-          rotation={[0, 0, 0.741]}
+          material={materials.Material}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Sphere2.geometry}
-          material={materials["Material.001"]}
+          material={materials["Material.004"]}
           position={[0.647, 1.03, -0.724]}
           rotation={[0, 0, 0.741]}
-          scale={0.223}
+          scale={0.229}
         />
       </group>
       <mesh
@@ -73,11 +72,10 @@ export function Planet(props) {
         castShadow
         receiveShadow
         geometry={nodes.Ring.geometry}
-        material={materials["Material.001"]}
-        rotation={[-0.124, 0.123, -0.778]}
-        scale={2}
+        material={materials["Material.003"]}
+        rotation={[-0.134, 0.112, -0.691]}
+        scale={1.182}
       />
-      <OrbitControls enableZoom={false} enablePan={false} />
     </group>
   );
 }
