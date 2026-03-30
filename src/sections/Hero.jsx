@@ -1,3 +1,4 @@
+import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { Planet } from "../components/Planet.jsx";
 import {
@@ -46,6 +47,12 @@ const Hero = () => {
           style={{ width: "100vw", height: "100vh" }}
         >
           <Canvas
+            gl={{
+              antialias: true,
+              toneMapping: THREE.ACESFilmicToneMapping, // Daha canlı, sinematik renkler verir
+              toneMappingExposure: 1.2, // Bu değeri 1.0 ile 2.0 arasında deneyerek parlaklığı bulabilirsin
+              outputColorSpace: THREE.SRGBColorSpace, // Renklerin doğru renderlanmasını sağlar
+            }}
             shadows
             camera={{ position: [0, 0, -10], fov: 17.5, near: 1, far: 20 }}
           >

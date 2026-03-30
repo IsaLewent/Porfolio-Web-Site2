@@ -85,7 +85,7 @@ const ContactSummary = () => {
   return (
     <section
       ref={containerRef}
-      className="flex flex-col items-center justify-center min-h-screen gap-30 md:gap-y-20 mt-20"
+      className="flex flex-col items-center justify-center min-h-screen gap-30 md:gap-y-20 mt-32"
     >
       <Marquee items={items} reverse={false} />
 

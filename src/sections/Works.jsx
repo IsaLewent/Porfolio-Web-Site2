@@ -175,7 +175,7 @@ const Works = () => {
   return (
     <section
       id="Work"
-      className="flex flex-col sm:gap-70 gap-0 min-h-[80vh] sm:mt-10 mt-0"
+      className="flex flex-col sm:gap-70 gap-0 min-h-[80vh] sm:mt-10 mt-0 "
     >
       <div>
         <div ref={contextRef}>
@@ -205,10 +205,10 @@ const Works = () => {
           <div className={`text-black border-t-2 `} />
         </div>
 
-        <div className="absolute px-12 inset-x-2 sm:inset-x-0 sm:mt-8 mt-0">
+        <div className="absolute px-12 inset-x-2 sm:inset-x-0 sm:mt-8">
           <div
             className={
-              "py-12 sm:py-14 text-balance overflow-hidden font-light uppercase value-text-responsive text-start "
+              "py-12 sm:py-14 text-balance overflow-hidden font-light uppercase value-text-responsive text-start mt-4 sm:mt-0"
             }
           >
             <div
@@ -257,7 +257,7 @@ const Works = () => {
             {/* {title} */}
 
             <div
-              className="sm:text-[32px] text-[20px] leading-none flex justify-between items-center md:pr-4 md:pl-20 sm:pr-12 pr-4 pl-12 md:group-hover:text-white md:group-hover:pl-24 md:group-hover:pr-12 duration-500 transition-all 
+              className="sm:text-[32px] text-[20px] leading-none flex justify-between items-center md:pr-4 md:pl-12 sm:pr-12 pr-4 pl-12 md:group-hover:text-white md:group-hover:pl-18 md:group-hover:pr-12 duration-500 transition-all 
              "
             >
               <h2>{project.name}</h2>
@@ -271,7 +271,7 @@ const Works = () => {
             <div className="w-full h-0.5 bg-black/80 my-4 sm:my-0" />
 
             {/* framework */}
-            <div className="flex sm:justify-start justify-center sm:px-20 px-4 gap-4 text-[11px] leading-loose uppercase transition-all duration-500 md:text-sm sm:gap-x-5 gap-x-2 md:group-hover:px-24">
+            <div className="flex sm:justify-start justify-center sm:px-12 px-4 gap-4 text-[11px] leading-loose uppercase transition-all duration-500 md:text-sm sm:gap-x-5 gap-x-2 md:group-hover:px-16">
               {project.frameworks.map((framework) => (
                 <p
                   key={framework.id}
