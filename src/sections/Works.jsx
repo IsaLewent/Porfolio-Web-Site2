@@ -173,10 +173,13 @@ const Works = () => {
   };
 
   return (
-    <section id="Work" className="flex flex-col sm:gap-70 gap-0 min-h-[80vh]">
+    <section
+      id="Work"
+      className="flex flex-col sm:gap-70 gap-0 min-h-[80vh] sm:mt-10 mt-0"
+    >
       <div>
         <div ref={contextRef}>
-          <div className="sm:px-20 px-12">
+          <div className="px-12">
             <div
               ref={headerRef}
               className={
@@ -185,7 +188,7 @@ const Works = () => {
             >
               <p
                 className={
-                  "font-light uppercase sm:text-balance sm:text-2xl text-[16] text-black"
+                  "font-light uppercase sm:text-balance sm:text-2xl text-[16px] text-black"
                 }
               >
                 Logic meets Aesthetics, Seamlessly
@@ -202,7 +205,7 @@ const Works = () => {
           <div className={`text-black border-t-2 `} />
         </div>
 
-        <div className="absolute px-12 inset-x-2 sm:inset-x-0 ">
+        <div className="absolute px-12 inset-x-2 sm:inset-x-0 sm:mt-8 mt-0">
           <div
             className={
               "py-12 sm:py-14 text-balance overflow-hidden font-light uppercase value-text-responsive text-start "
@@ -213,7 +216,10 @@ const Works = () => {
               className={`message-content flex flex-col justify-start items-start `}
             >
               {lines.map((line, index) => (
-                <span key={index} className="block text-lg first-message ">
+                <span
+                  key={index}
+                  className="block text-lg  sm:text-2xl first-message "
+                >
                   {line}
                 </span>
               ))}
