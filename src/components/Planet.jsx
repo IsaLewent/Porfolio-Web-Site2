@@ -11,7 +11,7 @@ export function Planet(props) {
   const shapePlanet = useRef(null);
   const sephereRef = useRef(null);
   const ringRef = useRef(null);
-  const { nodes, materials } = useGLTF("/models//Planet.glb");
+  const { nodes, materials } = useGLTF("/models/Planet.glb");
 
   useGSAP(() => {
     const tl = gsap.timeline();
@@ -52,14 +52,12 @@ export function Planet(props) {
     <group ref={shapePlanet} {...props} dispose={null}>
       <group ref={sephereRef}>
         <mesh
-          castShadow
           receiveShadow
           geometry={nodes.Sphere.geometry}
           material={materials.Material}
         />
         <mesh
           castShadow
-          receiveShadow
           geometry={nodes.Sphere2.geometry}
           material={materials["Material.004"]}
           position={[0.647, 1.03, -0.724]}
