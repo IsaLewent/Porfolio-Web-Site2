@@ -118,7 +118,7 @@
 
 html,
 body {
-  background: #e5e5e0;
+  background-color: #e5e5e0;
   color: black;
   scroll-behavior: smooth;
   /* overflow-x: hidden; */

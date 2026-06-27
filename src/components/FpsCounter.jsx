@@ -38,20 +38,7 @@ const FpsCounter = () => {
   };
 
   return (
-    <div
-      style={{
-        position: "fixed",
-        top: "100vh",
-        right: "10px",
-        background: "rgba(250, 0, 0, 0.8)",
-        color: "white",
-        padding: "5px 10px",
-        borderRadius: "5px",
-        fontFamily: "monospace",
-        zIndex: 9999,
-        pointerEvents: "none", // Tıklamaları engellememesi için
-      }}
-    >
+    <div className="fixed top-10 right-10 bg-red-500 text-white py-5 px-10 rounded-md font-mono z-50 pointer-events-none">
       FPS:{" "}
       <span className={getColor(fps)} style={{ fontWeight: "bold" }}>
         {fps}

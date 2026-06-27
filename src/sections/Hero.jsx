@@ -9,7 +9,6 @@ import {
 } from "@react-three/drei";
 import { useMediaQuery } from "react-responsive";
 import AnimatedHeaderSection from "../components/AnimatedHeaderSection.jsx";
-import HeroContinue from "./HeroContinue.jsx";
 import { useContext, useEffect } from "react";
 import { LoadingContext } from "../components/LoadingContext.jsx";
 
