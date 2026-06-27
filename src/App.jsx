@@ -25,8 +25,6 @@ const App = () => {
     }
   }, [progress]);
 
-  console.log(progress);
-
   useGSAP(() => {
     ScrollSmoother.create({
       smooth: 3,
@@ -67,6 +65,7 @@ const App = () => {
               <Works />
               <ContactSummary />
               <Contact />
+              {/* <FpsCounter /> */}
             </div>
           </div>
         </div>

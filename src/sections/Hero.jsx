@@ -92,7 +92,6 @@ const Hero = () => {
           </Canvas>
         </figure>
       </section>
-      <HeroContinue />
     </div>
   );
 };
