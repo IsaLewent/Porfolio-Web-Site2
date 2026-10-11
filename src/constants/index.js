@@ -109,6 +109,22 @@ export const projects = [
       { id: 6, name: "Blender" },
     ],
   },
+  {
+    id: 4,
+    name: "Mia-Room-Folio",
+    description: "An interactive, cozy 3D isometric web portfolio. Features a custom room modeled and texture-baked in Blender, brought to life with Three.js and Vanilla JavaScript. The design blends 90s retro arcade aesthetics with smooth GSAP animations and a modern Neo-Brutalism UI.",
+    href: "https://mia-room-folio.vercel.app/",
+    disabled: false,
+    image: "/assets/projects/mia-room-folio.webp.webp",
+    frameworks: [
+      { id: 1, name: "Vanilla JavaScript" },
+      { id: 2, name: "Three.js (WebGL)" },
+      { id: 3, name: "GSAP" },
+      { id: 4, name: "HTML & CSS" },
+      { id: 5, name: "Blender" },
+      { id: 6, name: "Vite" },
+    ],
+  },
 ];
 
 export const socials = [
